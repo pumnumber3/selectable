@@ -60,20 +60,13 @@ class SelectableMenuItem {
     this.type = SelectableMenuItemType.other,
     this.icon,
     this.popUpColor,
-    String? title,
+    Widget? title,
     SelectableMenuItemHandlerFunc? isEnabled,
     SelectableMenuItemHandlerFunc? handler,
   })  : assert(type != null && // ignore: unnecessary_null_comparison
             (type != SelectableMenuItemType.other ||
                 (title != null && isEnabled != null && handler != null))),
-        title = title ??
-            (type == SelectableMenuItemType.copy
-                ? 'Copy'
-                : type == SelectableMenuItemType.define
-                    ? 'Define'
-                    : type == SelectableMenuItemType.webSearch
-                        ? 'WebSearch'
-                        : null),
+        title = title,
         isEnabled = isEnabled ??
             (type == SelectableMenuItemType.copy
                 ? _canCopy
@@ -93,7 +86,7 @@ class SelectableMenuItem {
 
   final SelectableMenuItemType type;
   final Widget? icon;
-  final String? title;
+  final Widget? title;
   final SelectableMenuItemHandlerFunc? isEnabled;
   final SelectableMenuItemHandlerFunc? handler;
   final Color? popUpColor;
