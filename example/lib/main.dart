@@ -139,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   SelectableMenuItem(type: SelectableMenuItemType.copy),
                   SelectableMenuItem(
                     icon: Container(),
-                    title: 'Color Red',
+                    title: Container(),
                     isEnabled: (controller) => controller!.isTextSelected,
                     handler: (controller) {
                       final selection = controller?.getSelection();

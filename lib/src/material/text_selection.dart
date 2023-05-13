@@ -38,7 +38,7 @@ class _TextSelectionPopupMenu extends StatelessWidget {
             ? [
                 _Button(
                   icon: e.icon,
-                  title: e.title ?? '',
+                  title: e.title,
                   isDarkMode: isDarkMode,
                   onPressed: () => e.handler!(delegate!.controller),
                 )
@@ -70,11 +70,6 @@ class _TextSelectionPopupMenu extends StatelessWidget {
   }
 }
 
-const TextStyle popupMenuTextStyle = TextStyle(
-  fontSize: 16,
-  fontWeight: FontWeight.w500,
-);
-
 class _Button extends StatelessWidget {
   const _Button({
     required this.icon,
@@ -84,15 +79,11 @@ class _Button extends StatelessWidget {
   });
 
   final Widget? icon;
-  final String title;
+  final Widget? title;
   final bool? isDarkMode;
   final void Function()? onPressed;
 
-  Widget get _text => Text(
-        icon == null ? title : ' $title',
-        style: popupMenuTextStyle.copyWith(
-            color: isDarkMode! ? Colors.white : Colors.black),
-      );
+  Widget? get _text => title;
 
   @override
   Widget build(BuildContext context) => TextButton(
@@ -100,12 +91,12 @@ class _Button extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: _kButtonPadding)),
         onPressed: onPressed,
         child: icon == null
-            ? _text
+            ? _text ?? SizedBox()
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   icon ?? SizedBox(),
-                  _text,
+                  _text ?? SizedBox(),
                 ],
               ),
       );

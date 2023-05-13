@@ -389,7 +389,7 @@ class _CupertinoTextSelectionControls extends SelectionControls {
 
     void addPopupMenuButtonIfNeeded(
       Widget? icon,
-      String text,
+      Widget? text,
       bool Function(SelectableController?) predicate,
       bool Function(SelectableController?)? onPressed,
     ) {
@@ -402,11 +402,7 @@ class _CupertinoTextSelectionControls extends SelectionControls {
         items.add(onePhysicalPixelVerticalDivider);
       }
 
-      Widget textWidget() => Text(
-            icon == null ? text : ' $text',
-            style: _kPopupMenuButtonFontStyle,
-            textScaleFactor: 1.0,
-          );
+      Widget? textWidget() => text;
 
       items.add(CupertinoButton(
         color: _kPopupMenuBackgroundColor,
@@ -416,12 +412,12 @@ class _CupertinoTextSelectionControls extends SelectionControls {
         pressedOpacity: 0.7,
         onPressed: () => onPressed!(delegate.controller),
         child: icon == null
-            ? textWidget()
+            ? textWidget() ?? const SizedBox()
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   icon,
-                  textWidget(),
+                  textWidget() ?? const SizedBox(),
                 ],
               ),
       ));
@@ -429,7 +425,7 @@ class _CupertinoTextSelectionControls extends SelectionControls {
 
     for (final item in delegate.menuItems) {
       addPopupMenuButtonIfNeeded(
-          item.icon, item.title ?? '', item.isEnabled!, item.handler);
+          item.icon, item.title, item.isEnabled!, item.handler);
     }
 
     return _CupertinoTextSelectionPopupMenu._(
