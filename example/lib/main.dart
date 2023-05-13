@@ -138,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 popupMenuItems: [
                   SelectableMenuItem(type: SelectableMenuItemType.copy),
                   SelectableMenuItem(
-                    icon: Icons.brush_outlined,
+                    icon: Container(),
                     title: 'Color Red',
                     isEnabled: (controller) => controller!.isTextSelected,
                     handler: (controller) {

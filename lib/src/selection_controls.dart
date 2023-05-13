@@ -59,6 +59,7 @@ class SelectableMenuItem {
   const SelectableMenuItem({
     this.type = SelectableMenuItemType.other,
     this.icon,
+    this.popUpColor,
     String? title,
     SelectableMenuItemHandlerFunc? isEnabled,
     SelectableMenuItemHandlerFunc? handler,
@@ -91,10 +92,11 @@ class SelectableMenuItem {
                         : null);
 
   final SelectableMenuItemType type;
-  final IconData? icon;
+  final Widget? icon;
   final String? title;
   final SelectableMenuItemHandlerFunc? isEnabled;
   final SelectableMenuItemHandlerFunc? handler;
+  final Color? popUpColor;
 }
 
 //

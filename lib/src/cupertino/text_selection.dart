@@ -44,8 +44,8 @@ const Size _kPopupMenuArrowSize = Size(14.0, 7.0);
 const Radius _kPopupMenuBorderRadius = Radius.circular(8);
 // Colors extracted from https://developer.apple.com/design/resources/.
 // TO-DO: https://github.com/flutter/flutter/issues/41507.
-const Color _kPopupMenuBackgroundColor = Color(0xEB202020);
-const Color _kPopupMenuDividerColor = Color(0xFF808080);
+const Color _kPopupMenuBackgroundColor = Color(0xFF06C6B4);
+const Color _kPopupMenuDividerColor = Color(0xFFFFFFFF);
 
 const TextStyle _kPopupMenuButtonFontStyle = TextStyle(
   inherit: false,
@@ -388,7 +388,7 @@ class _CupertinoTextSelectionControls extends SelectionControls {
     // dmPrint('_CupertinoTextSelectionControls.buildPopupMenu');
 
     void addPopupMenuButtonIfNeeded(
-      IconData? icon,
+      Widget? icon,
       String text,
       bool Function(SelectableController?) predicate,
       bool Function(SelectableController?)? onPressed,
@@ -420,11 +420,7 @@ class _CupertinoTextSelectionControls extends SelectionControls {
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(
-                    icon,
-                    size: 18.0,
-                    color: const Color(0xffffffff),
-                  ),
+                  icon,
                   textWidget(),
                 ],
               ),

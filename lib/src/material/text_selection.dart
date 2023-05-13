@@ -55,11 +55,12 @@ class _TextSelectionPopupMenu extends StatelessWidget {
 
     return Material(
       elevation: 4.0,
-      color: Theme.of(context).canvasColor,
+      color: Color(0xFF06C6B4),
       borderRadius: BorderRadius.circular(8),
       child: Theme(
         data: ThemeData(buttonTheme: ButtonThemeData(minWidth: 0)),
         child: Container(
+          color: Color(0xFF06C6B4),
           height: _kPopupMenuHeight,
           padding: EdgeInsets.symmetric(horizontal: _kButtonPadding),
           child: Row(mainAxisSize: MainAxisSize.min, children: items),
@@ -82,7 +83,7 @@ class _Button extends StatelessWidget {
     required this.onPressed,
   });
 
-  final IconData? icon;
+  final Widget? icon;
   final String title;
   final bool? isDarkMode;
   final void Function()? onPressed;
@@ -103,11 +104,7 @@ class _Button extends StatelessWidget {
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(
-                    icon,
-                    size: 20.0 * MediaQuery.of(context).textScaleFactor,
-                    color: isDarkMode! ? Colors.white : Colors.black,
-                  ),
+                  icon ?? SizedBox(),
                   _text,
                 ],
               ),
