@@ -407,7 +407,7 @@ class _CupertinoTextSelectionControls extends SelectionControls {
       items.add(CupertinoButton(
         color: _kPopupMenuBackgroundColor,
         minSize: _kPopupMenuHeight,
-        padding: _kPopupMenuButtonPadding.add(arrowPadding),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5),
         borderRadius: null,
         pressedOpacity: 0.7,
         onPressed: () => onPressed!(delegate.controller),
